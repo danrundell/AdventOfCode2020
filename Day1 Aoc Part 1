@@ -1,0 +1,24 @@
+#This was my approach that I robbed from someone else and modified to suit my purposes.
+#It seems like it works when there are only two values needed for a subset, but anything beyond that breaks it.
+#It's kind of neat in the simplicity since it just looks to see if the target number being tested minus any others in the
+#list equals the difference... I don't know if I explained that properly. Is there a way to display how much computational power is needed for a script?
+
+v = []
+
+with open('aoc1data.txt') as k:
+    v = k.readlines()
+v = list(map(int, v))
+
+ylist = v
+target = 2020 
+
+for i in range(len(ylist)):
+    sno = target-ylist[i]
+    for j in range(i+1, len(ylist)):
+        if ylist[j] == sno:
+            print(ylist[i])
+            print(ylist[j])
+            print(ylist[i]*ylist[j])
+
+#I only added this after your explanation about leaving files open and want to develop a good habit.
+open('aoc1data.txt').close()
